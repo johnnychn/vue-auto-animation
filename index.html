@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>腾讯视频</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+
+    <script src="./js/smart.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./dist/vue-auto-animation.js"></script>
+    <style>
+        html,body{
+            padding: 0px;margin: 0px;
+        }
+        .box{
+            width: 50px;float: left;
+            margin: 1px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body @click="click">
+<div style="background: #000;color:#fff;padding: 5px">abc</div>
+<vue-auto-animation :class="{box:true}" :style="{background:'#f0f0f0'}" v-for="i in 50"
+                    :normal="{transition:'all 0.5s ease',opacity:1,scale:1,'transition-delay': '0s'}"
+                    :enter="{'transition-delay': '.2s',opacity:0,scale:0.5,y:10}">
+
+    box
+    box box box box box
+</vue-auto-animation>
+
+<script>
+//    var sound=new Smart.Sound({path:'media/bgm.mp3',loop:true})
+//    sound.play();
+//
+//
+//    var sp=new Smart.Sound({path:'media/p.mp3',loop:false})
+
+
+    new Vue({
+        el: 'body',
+        components: {
+            VueAutoAnimation: VueAutoAnimation
+        },
+        data: {show:true
+        },
+        methods: {
+
+            click:function (mc) {
+               this.show=!this.show;
+//                sp.play();
+               // console.log(this.show)
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>
